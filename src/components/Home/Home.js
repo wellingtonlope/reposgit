@@ -16,9 +16,11 @@ import {
 	View,
 	ScrollView,
 	TouchableOpacity,
-	StatusBar
+	StatusBar,
+	Image
 } from 'react-native';
 
+import If from '../If'
 import Repo from '../Repo'
 import NewRepo from '../NewRepo';
 import styles from './styles'
@@ -33,18 +35,31 @@ class App extends Component {
 				<View style={styles.header}>
 					<Text style={styles.headerText}>ReposGit</Text>
 				</View>
-
 				<ScrollView contentContainerStyle={styles.repoList}>
-					{
-						this.props.repo.data.map(repo =>
-							<Repo
-								key={repo.id}
-								data={repo}
-								removeRepo={this.props.removeRepo.bind(this)}
+					<If test={this.props.repo.data.length}>
+						{
+							this.props.repo.data.map(repo =>
+								<Repo
+									key={repo.id}
+									data={repo}
+									removeRepo={this.props.removeRepo.bind(this)}
+								/>
+							)
+						}
+					</If>
+					<If test={!this.props.repo.data.length}>
+						<View style={styles.contentEmpty}>
+							<Image
+								style={styles.imageEmpty}
+								source={require('../../img/empty-box.png')}
 							/>
-						)
-					}
+							<Text style={styles.textEmpty}>Nada encontrado!</Text>
+						</View>
+					</If>
 				</ScrollView>
+
+
+
 				<TouchableOpacity style={styles.addButton} onPress={() => this.props.openModal()}>
 					<Text style={styles.addButtonText}>Adicionar</Text>
 				</TouchableOpacity>

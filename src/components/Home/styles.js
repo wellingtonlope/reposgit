@@ -1,6 +1,6 @@
 import { StyleSheet, Platform } from 'react-native'
 
-import { primaryColor, secondaryColor } from '../../colors'
+import { primaryColor, secondaryColor, primaryDarkColor } from '../../colors'
  
 export default StyleSheet.create({
 	container: {
@@ -22,6 +22,7 @@ export default StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	repoList: {
+		flex: 1,
 		padding: 20,
 	},
 	addButton: {
@@ -34,5 +35,19 @@ export default StyleSheet.create({
 		color: primaryColor,
 		fontSize: 16,
 		fontWeight: 'bold'
+	},
+	contentEmpty: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	imageEmpty: {
+		height: 128,
+		width: 120
+	},
+	textEmpty: {
+		fontSize: 20,
+		fontWeight: 'bold',
+		color: primaryDarkColor
 	}
 })

@@ -16,7 +16,8 @@ const repo = (state = INITIAL_STATE, action) => {
 				id: data.id,
 				thumbnail: data.owner.avatar_url,
 				title: data.name,
-				author: data.owner.login
+				author: data.owner.login,
+				url: data.html_url
 			}
 			return {
 				...state,

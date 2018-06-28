@@ -9,14 +9,14 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { addRepo, removeRepo, openModal, closeModal } from '../../actions/repo'
+import { primaryDarkColor } from '../../colors'
 
 import {
-	StyleSheet,
 	Text,
 	View,
 	ScrollView,
-	Platform,
 	TouchableOpacity,
+	StatusBar
 } from 'react-native';
 
 import Repo from '../Repo'
@@ -27,6 +27,9 @@ class App extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<StatusBar
+					backgroundColor={primaryDarkColor}
+				/>
 				<View style={styles.header}>
 					<Text style={styles.headerText}>ReposGit</Text>
 				</View>

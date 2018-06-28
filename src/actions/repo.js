@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { SubmissionError } from 'redux-form'
 
 import { ADD_REPO, REMOVE_REPO, OPEN_MODAL, CLOSE_MODAL, BASE_URL } from '../constants'
 
@@ -12,7 +13,7 @@ const addRepo = values => {
 				payload: response
 			})
 		} catch (error) {
-			console.log(error.response.status)
+			throw new SubmissionError({ repo: 'Repositório não encontrado' })
 		}
 	}
 }

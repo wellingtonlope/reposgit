@@ -1,6 +1,10 @@
-import { StyleSheet, Platform } from 'react-native'
+import { StyleSheet, Platform, Dimensions } from 'react-native'
 
 import { primaryColor, secondaryColor, primaryDarkColor } from '../../colors'
+
+const height = Dimensions.get('window').height
+const iPhone = Platform.OS === 'ios'
+const iPhoneX = Platform.OS === 'ios' && height === 812
  
 export default StyleSheet.create({
 	container: {
@@ -8,8 +12,7 @@ export default StyleSheet.create({
 		backgroundColor: primaryColor,
 	},
 	header: {
-		height: (Platform.OS === 'ios') ? 70 : 50,
-		paddingTop: (Platform.OS === 'ios') ? 20 : 0,
+		paddingTop: iPhoneX ? 30 : iPhone ? 20 : 0,
 		backgroundColor: primaryColor,
 		flexDirection: 'row',
 		justifyContent: 'center',
@@ -22,14 +25,14 @@ export default StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	repoList: {
-		flex: 1,
 		padding: 20,
 	},
 	addButton: {
-		height: 50,
+		height: iPhoneX ? 60 : 50,
 		backgroundColor: secondaryColor,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		paddingBottom: iPhoneX ? 10 : 0
 	},
 	addButtonText: {
 		color: primaryColor,

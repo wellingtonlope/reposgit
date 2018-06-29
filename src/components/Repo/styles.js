@@ -4,6 +4,7 @@ import { secondaryColor, textPrimaryColor, textSecondaryColor, primaryColor } fr
 const styles = StyleSheet.create({
 	repo: {
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		padding: 20,
 		marginBottom: 20,
 		borderRadius: 5,
@@ -30,12 +31,13 @@ const styles = StyleSheet.create({
 		fontSize: 12,
 		color: textSecondaryColor
 	},
-	button: {
-		height: 20
+	repoLink: {
+		color: primaryColor,
+		fontSize: 12
 	},
-	buttonText: {
-		color: textSecondaryColor,
-		fontWeight: 'bold'
+	deleteImage: {
+		width: 30,
+		height: 30
 	}
 })
 

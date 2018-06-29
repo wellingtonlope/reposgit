@@ -35,7 +35,7 @@ class App extends Component {
 				<View style={styles.header}>
 					<Text style={styles.headerText}>ReposGit</Text>
 				</View>
-				<ScrollView scrollEnabled={true} contentContainerStyle={styles.repoList}>
+				<ScrollView contentContainerStyle={[styles.repoList, !this.props.repo.data.length ? {flex: 1} : {}]}>
 					<If test={this.props.repo.data.length}>
 						{
 							this.props.repo.data.map(repo =>

@@ -13,7 +13,9 @@ import { addRepo } from '../../actions/repo'
 
 
 const NewRepo = props => (
-	<Modal animationType='fade' transparent={true} visible={props.visible}>
+	<Modal animationType='fade' transparent={true} visible={props.visible} onRequestClose={() => {
+		console.log('Modal has been closed.');
+	}}>
 		<View style={styles.modalContainer}>
 			<View style={styles.boxContainer}>
 				<Text style={styles.boxTitle}>Adicionar repositório</Text>
